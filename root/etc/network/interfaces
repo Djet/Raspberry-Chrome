@@ -1,0 +1,7 @@
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet dhcp
+    pre-up echo 'nameserver 1.1.1.1' >> /etc/resolv.conf
+    pre-up echo 'nameserver 8.8.8.8' >> /etc/resolv.conf
