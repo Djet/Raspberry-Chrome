@@ -1,0 +1,4 @@
+#!/bin/sh
+CHROME_DEFAULT_FLAGS='--flag-switches-begin --remote-debugging-port=3885 --disable-experimental-fullscreen-exit-ui --disable-pinch --disable-web-security --no-default-browser-check --no-sandbox --no-first-run --kiosk --no-pings --disable-site-isolation-trials --disable-infobars --no-experiments --disable-translate-new-ux --disable-features=TouchpadOverscrollHistoryNavigation --disable-features=PointerEventsForTouch --overscroll-history-navigation=0 --check-for-update-interval=1209600 --use-gl=egl --enable-gpu-rasterization --enable-unsafe-webgpu --enable-webgl-draft-extensions --disable-site-isolation-trials --user-data-dir= --ignore-gpu-blocklist --flag-swithes-end'
+
+chromium-browser ${CHROME_DEFAULT_FLAGS} --app=https://web.basemark.com/run/

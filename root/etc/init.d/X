@@ -1,0 +1,31 @@
+#!/sbin/openrc-run
+depend() {
+       need modules
+       after hwdrivers
+}
+
+run_xorg() {
+         echo "performance" | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+         if [ -f /tmp/.X0-lock ]
+         then
+           rm /tmp/.X0-lock
+         fi
+
+         echo -e "\033\0143" > /dev/tty1
+         /usr/bin/X -nolisten tcp :0 -ac &>/var/log/X.log &
+}
+
+start() {
+        ebegin "Starting X server"
+        run_xorg
+        eend $?
+}
+
+stop() {
+        ebegin "Stopping X server"
+        pkill -f /usr/bin/X
+        sleep 1
+        eend 0
+}
+
+

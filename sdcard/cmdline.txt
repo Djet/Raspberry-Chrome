@@ -1,0 +1,1 @@
+initramfs.runsize=4G console=tty1 quiet 

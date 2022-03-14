@@ -1,0 +1,5 @@
+#!/bin/busybox sh
+test -x /usr/sbin/v86d && dev_exec="exec" || dev_exec="noexec"
+mount -t devtmpfs -o $dev_exec,nosuid,mode=0755 udev /dev
+
+exec /sbin/init
